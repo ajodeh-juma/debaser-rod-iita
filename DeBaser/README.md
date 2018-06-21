@@ -1,9 +1,8 @@
+1. TO START THE API/SERVER DEVELOPED IN DJANGO 
 
-###### TO START THE API/SERVER DEVELOPED IN DJANGO #########################
+    a. developed in a python3 Virtual environment
 
-#If developed in a Python3 Virtual Environment and running in test mode
-
-#To start the API, on a terminal, activate the virtual environment:
+To start the API, on a terminal, activate the virtual environment:
 source ~/environments/my_env/bin/activate
 
 #navigate to the project directory where the application resides
