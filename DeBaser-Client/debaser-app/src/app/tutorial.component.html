@@ -1,0 +1,146 @@
+<div id="wrapper">
+	<div id="header">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target='#myNavbar' aria-expanded="false">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+			    <a class="navbar-brand" href="http://www.iita.org" style="padding: 8px 8px;"></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar" aria-expanded="false" style="height: 1px;">
+					<ul class="nav navbar-nav">
+						<!-- <li><a href="home">Home</a></li>
+                		<li><a href="about">About</a></li>
+                		<li><a href="tutorial">Tutorial</a></li>
+                		<li><a href="contact">Contact</a></li> -->
+                		<li class="dropdown">
+                			<a class="dropdown-toggle" data-toggle="dropdown" href='#' aria-expanded="false">Navigate</a>
+                			  <ul class="dropdown-menu">
+                			  	<li>
+                			  		<a href="http://localhost:4200/home">Home</a>
+                			  	</li>
+                			  	<li role="separator" class="divider"></li>
+                			  	<li>
+                			  		<a href="http://localhost:4200/about">About</a>
+                			  	</li>
+                			  	<li role="separator" class="divider"></li>
+                			  	<li>
+                			  		<a href="http://localhost:4200/tutorial">Tutorial</a>
+                			  	</li>
+                			  	<li role="separator" class="divider"></li>
+                			  	<li>
+                			  		<a href="http://localhost:4200/contact">Contact</a>
+                			  	</li>
+                			  </ul>
+                		</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--<router-outlet></router-outlet> -->
+		<style>
+			.dropdown:hover .dropdown-menu {
+				display: block;
+				margin-top: 0;
+			}
+			.dropdown-menu > li > a {
+				line-height: 14px;
+				font-size: 14px;
+				margin-top: 0px;
+				padding-top: 0px;
+			}
+		</style>
+	</div>
+	<br>
+
+    <div id="content">
+    	<div id="wrapper" class="container-fluid">
+        <div id="main_row" class="row">
+            <div class="col-md-1 col-lg-1 col-xl-2"></div>
+    			<div class="col-sm-12 col-md-10 col-lg-10 col-xl-8">
+    					
+    						
+    							<div class="modal-body">
+    								<ol class="list-group">
+    									<li class="list-group-item">
+    										1. Choose <b>organism</b>
+    									<br>
+    									</li>
+    									<li class="list-group-item">
+    										2. Choose two or more <b>varieties</b>, based on the selected organism (minimum of two <b>varieties</b>)
+    									<br>
+    									</li>
+                                        <li class="list-group-item">
+                                            3. Select type of analysis either find polymorphism (query database) or NGS assembly & find polymorphism (Default: NGS assembly and find polymorphism) 
+                                            <br> <b>Provide sequence identifier(s) only if finding polymorphisms </b>
+                                        <br>
+                                        </li>
+    									<li class="list-group-item">
+    										4. Paste <b>sequence(s) (FASTA format) or sequence identifier(s) for complete analysis</b> or <b> sequence idenfifier(s) only if querying a database to find polymorphism</b><br>
+    									
+    									<br>
+    									<pre>
+>Manes.03G052800.1
+ATCTGATGGACTGGATYATAAACTC
+ACCATGATAGGGTTACCGATAGCAT
+>Manes.09G063700.1
+AGCTGCTAGACTGGATYATAAAGCA
+ACCATGATAGGGTTACCGATGAGGA
+>Manes.03G098700.4
+ACCGATCCTAGGGATTCAAACTAGA
+GCAATGACCCATGCATGATAGCAGTA
+                                        </pre>
+    									<pre>
+Manes.03G052800.1
+Manes.09G063700.1
+Manes.03G098700.4
+                                        </pre>
+    									</li>
+    									<li class="list-group-item">
+    										5. Select <b>multiple sequence alignment output</b>, (Default: consensus(FASTA format), OPTIONAL(Multalin, Muscle))
+    									<br>
+    									</li>
+    									<li class="list-group-item">
+    										6. Enter valid <b>Email address</b>, where results will be sent
+    									<br>
+    									</li>
+    									
+    								</ol>
+    							</div>
+    						
+    					</div>
+    				</div>
+    		</div>
+            </div>
+    	</div>
+
+
+        <!--<div id="footer">
+        <div id="pagefooter" style="background-color: #ff8000;">
+            
+            <a href="http://www.iita.org"><img wrap src="assets/images/logo-iita50.png" style="height: 55px; margin-left: 20px; float: left;"></a>
+            <a href="http://www.cgiar.org"><img src="assets/images/cgiar_logo.png" style="height: 55px; margin-left: 20px; float: left;"></a>
+            <span style="line-height: 60px;"><p style="height: 55px; margin-left: 20px; float: left; color: black; font-size: 14px; font-weight: bold;"><sup>&copy;</sup>2017</p></span>
+        </div>
+    </div>-->
+    <div class="container"> 
+        <div class="pagefooter">
+            <div class="margin-20">
+                <div class="col-xs-4">
+                    <a href="http://www.iita.org"><img wrap src="assets/images/logo-iita50.png" style="height: 55px; margin-left: 20px; float: left; display: inline; visibility: visible;"></a>
+                </div>
+                <div class="col-xs-4">
+                    <span style="line-height: 60px;"><p style="height: 55px; margin-left: 20px; float: left; color: black; font-size: 14px; font-weight: lighter; display: inline;"><sup> &copy; </sup>2017 IITA.</p></span>
+                </div>
+                <div class="col-xs-4">
+                    <a href="http://www.cgiar.org"><img src="assets/images/CGIAR green logo.jpg" style="height: 55px; margin-left: 20px; float: left; display: inline; visibility: visible;"></a>
+                </div>
+                    
+                    
+            </div>
+        </div>
+    </div> 
+   

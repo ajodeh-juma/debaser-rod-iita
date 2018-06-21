@@ -1,0 +1,595 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<section id="header" class="header-top">
+	<div id="header" class="navbar navbar-default" role="navigation">
+		<div>
+            
+            
+    <div class="pull-left" [ngStyle]="{'margin-top': '20px', 'margin-left':'150px'}">
+    <a _ngcontent-c1 aria-label="DeBaser" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://localhost:4200/home">
+        <span class="mat-button-wrapper">
+            <mat-icon>home</mat-icon>
+        </span>
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    
+    </a>
+
+    
+    <a _ngcontent-c1 class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button tabindex="0" aria-disabled="false" [ngStyle]="{'background-color': '#F8F8FF'}">
+        <span class="mat-button-wrapper">
+            <div class="docs-button mat-button" data-toggle="modal" (click)="aboutmodal()" data-target="#myModal">About</div>
+        </span>
+
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a>
+
+    <a _ngcontent-c1 class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button tabindex="0" aria-disabled="false" [ngStyle]="{'background-color': '#F8F8FF'}">
+        <span class="mat-button-wrapper">
+            <div class="docs-button mat-button" data-toggle="modal" (click)="tutorialmodal()" data-target="#myModal">Tutorial</div>
+        </span>
+
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a>
+
+
+    <a _ngcontent-c1 class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button tabindex="0" aria-disabled="false" [ngStyle]="{'background-color': '#F8F8FF'}">
+        <span class="mat-button-wrapper">
+            <div class="docs-button mat-button" data-toggle="modal" (click)="contactmodal()" data-target="#myModal">Contact</div>
+        </span>
+
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    </a>
+    </div> 
+    <div class="pull-right" [ngStyle]="{'margin-top': '20px', 'margin-right':'150px'}">
+    <a _ngcontent-c1 class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button tabindex="0" aria-disabled="false" href="http://www.iita.org" [ngStyle]="{'background-color': '#F8F8FF'}">
+        <span class="mat-button-wrapper">
+            <img _ngcontent-c1 alt="iita" [ngStyle]="{'height':'80px', 'margin-top':'0px'}" src="assets/images/IITA-TAA-smallnew.png">
+        </span>
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    
+    </a>
+
+    <a _ngcontent-c1 class="docs-navbar-hide-small docs-button mat-button ng-star-inserted" mat-button tabindex="0" aria-disabled="false" href="http://www.cgiar.org" [ngStyle]="{'background-color': '#F8F8FF', 'height':'80px'}">
+        <span class="mat-button-wrapper">
+            <img _ngcontent-c1 alt="CGIAR" [ngStyle]="{'height':'80px'}" src="assets/images/CGIAR_green.png">
+        </span>
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    
+    </a>
+</div>
+
+    
+
+    <!--<a _ngcontent-c1 aria-label="IITA" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://www.cgiar.org">
+        <span class="mat-button-wrapper">
+            <img _ngcontent-c1 alt="cgiar" src="assets/images/cgiar_logo-white.png">
+        </span>
+        <div class="mat-button-ripple mat-ripple" matripple></div>
+        <div class="mat-button-focus-overlay"></div>
+    
+    </a>-->
+
+    
+			<!--<a class="dropdown">
+                 
+		    	<button type="button" class="btn btn-icon btn-sm"><a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Menu</a></button>
+		    	<ul class="dropdown-menu">
+		    		<li> 
+                              
+                        <button type="button" class="btn btn-info btn-sm"><a href="http://localhost:4200/home">Home</a></button>   
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="aboutmodal()" data-target="#myModal">About</button>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="tutorialmodal()" data-target="#myModal">Tutorial</button>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="tutorialmodal()" data-target="#myModal">Contact</button>
+                    </li>
+		    	</ul>
+		    </a>-->
+		</div>
+		
+	    <div class="container">
+		    <div>
+		    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".normal_nav">
+		    		<span class="sr-only">Toggle navigation</span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    		<span class="icon-bar"></span>
+		    	</button>
+		    	<!--<div class="collapse navbar-collapse normal_nav">	
+		    		<div class="pull-left">
+			            <a class="img-responsive" [ngStyle]="{'background-color': '#F8F8FF', 'height': '120px'}" href="http://www.iita.org"><img wrap src="assets/images/IITA-TAA-smallnew.png"></a>
+		            </div>
+                    <span tabindex="0"></span>
+		            <div class="pull-right">
+			            <a class="img-responsive" href="http://www.cgiar.org"><img wrap src="assets/images/cgiar_logo-white.png"></a>
+		            </div>
+		    	</div>-->
+		    </div>
+	    </div> 
+	</div>
+</section>
+
+<body class="Site">
+    <main class="Site-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="well" [ngStyle]="{'background-color': '#FFFFFF', 'border': '1px solid black'}">
+					<div class="margin-20">
+						<h1 align="center" font-size='9px' style="font-family: Times;color: black;"> DeBaser: An online tool for fast NGS data assembly and polymorphism discovery</h1>
+					</div>
+
+                        <div class="form-group col-xs-20">
+                        
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <p [ngStyle]="{'color': 'black', 'font-size': '14px', 'font-weight': 'bold', 'margin-left': '20px'}" id="rcorners">To retrieve or compare sequences from one or more varieties from the same species</p> 
+                                    <span [ngStyle]="{'height':'auto', 'margin-left':'200px', 'font-size': '40px'}">&#8681;</span> 
+                                </div> 
+                                
+                                <div class="col-xs-6" [ngStyle]="{'color': 'black', 'font-size': '14px', 'font-weight': 'bold', 'margin-right': '0px'}">
+                                    <button  id="rcorners" class="btn btn-default btn-primary pull-right" type="button" (click)="setAnalysisInputType(INPUT_TYPE.SUBMITDATA)"
+                                    class="btn btn-block text-capitalize"
+                                    [class.btn-default]="form.controls.inputTYPE.value !== INPUT_TYPE.SEQ && form.controls.inputTYPE.value !== INPUT_TYPE.SEQID"
+                                    [class.btn-primary]="form.controls.inputTYPE.value === INPUT_TYPE.SUBMITDATA">{{ INPUT_TYPE.SUBMITDATA }}
+                                </button>
+                                </div>
+                            </div>
+                    
+                        </div>
+
+                            
+                            
+                        
+                        
+                    
+
+                    
+					<!--<div class="form-group panel panel-default margin-20">
+                        <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Analysis options.</legend>
+                            <div class="mat-app-background basic-container">
+                            
+                                <span matTooltip="Click on 'Gene Identifier(s)' if your input is Gene identifier(s) or Click on 'FASTA Sequence(s)' if your input is FASTA sequence(s)" (tooltip)="matTooltip">
+                                    1. DeBaser online polymorphism finder
+                                </span>
+                            
+                            </div>
+                            <br/>
+                            <div class="mat-app-background basic-container">
+                        
+                                <span matTooltip="Click on the button: Submit Raw Data For Assembly" (tooltip)="matTooltip">
+                                    2. DeBaser NGS assembly pipeline
+                                </span>
+
+                            </div>
+                    </div>-->
+                    <!--<div class="mat-app-background basic-container">
+                        <mat-accordion>
+                        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    DeBaser online polymorphism finder
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <p>I'm visible because I am open</p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div> -->
+                <div class="panel panel-default margin-18">
+                    
+                    <div class="form-group col-xs-12">
+                        <form [formGroup]="gidform">
+                            <div class="form-group col-xs-12">
+                        <legend [ngStyle]="{'text-align':'left', 'font-size': '16px', 'border-bottom': '1px solid grey'}">1. Select organism.</legend>                   
+                            <select  class="form-control" formControlName='organism' id="organism" (click)="onSelect_db($event.target.value)">
+                                <option [selected]="gidform.controls.organism.value == null" placeholder="Select Organism" value="">-- Select organism --</option> 
+                                <option *ngFor="let species of species_db?.results" [selected]="species.id == organism" [value]="species['id']">{{ species.species_name }}</option>
+                                {{value}}
+                            </select>
+                            <div class="col-xs-8" *ngIf="gidform.controls['organism'].hasError('required') && gidform.controls['organism'].touched" class="alert alert-danger">Please select an organism.</div>
+
+                    </div>
+                    <div class="form-group col-xs-12" *ngIf="gidform.controls.organism.valid">
+                        <legend [ngStyle]="{'text-align':'left', 'font-size': '16px', 'border-bottom': '1px solid grey'}">2. Select variety(ies) *</legend> 
+                        
+                        <mat-card>
+                            <mat-card-content style="height: 100px; overflow-y: auto">
+                                <div class="checkbox_cont">
+                                    <div class="checkbox">
+                                        <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;}" class="green" id="allvarieties" name="allvarieties"  value="allvarieties" (click)="toggleSelect($event)">Select All</label>
+                                    </div>
+                                </div>
+                                <div class="modal_line"></div>
+                                <div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                    <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" name="varietyname[{{i}}]" style="align: start; margin:0 200px;}" class="green" [checked]="variety.selected" value="variety.selected" id="{{variety.variety_name}}" (click)="getSelectedVariety(variety.id, $event)" (change)="variety.selected = !(variety.selected)">{{variety.variety_name}}</label>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+
+                        
+
+                        
+                        <!--<mat-card >                                
+                                <mat-card-content style="height: 100px; overflow-y: auto" >
+                                    
+
+                                    <div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                                    
+                                        <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;}" class="green" [checked]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)" [value]="variety.id">{{variety.variety_name}}</label>
+                                    </div>
+
+                                </mat-card-content>
+                        </mat-card>-->
+                        <!--<div>
+                            <input type="button" (click)="ApplyFilters(gidform.valid)" class="btn btn-primary filters_btn" value="Apply Selections">
+                            <div *ngIf="datas.length < 1" class="alert alert-danger">Please Select one or more varieties and Apply Selections.</div>
+                        </div>-->
+                        
+                        
+                        
+                         
+                    </div>
+                    </form>
+                    </div>
+                
+
+                    <div class="form-group col-xs-8">
+                        <legend [ngStyle]="{'text-align':'left', 'font-size': '16px', 'border-bottom': '1px solid grey'}">3. Select input type</legend>
+                    </div>
+
+                    <div class="form-group col-xs-8">
+                    
+                    	<div class="row">        
+                            <div class="col-xs-6" pull-left>
+                            	<button class="btn btn-default btn-primary" [ngStyle]="{'border-color': '6px solid white'}" type="button" (click)="setAnalysisInputType(INPUT_TYPE.SEQID)" (click)="ApplyFilters(gidform.valid)"
+                            	class="btn btn-block text-capitalize"
+                            	[class.btn-default]="form.controls.inputTYPE.value !== INPUT_TYPE.SEQ && form.controls.inputTYPE.value !== INPUT_TYPE.SUBMITDATA"
+                            	[class.btn-primary]="form.controls.inputTYPE.value === INPUT_TYPE.SEQID">
+                            	{{ INPUT_TYPE.SEQID }}
+                            	</button>
+
+                           	</div>
+                            
+
+                            <div class="col-xs-6" pull-center>
+                                <button class="btn btn-default btn-primary" type="button" (click)="setAnalysisInputType(INPUT_TYPE.SEQ)" (click)="ApplyFilters(gidform.valid)"
+                                	class="btn btn-block text-capitalize"
+                                	[class.btn-default]="form.controls.inputTYPE.value !== INPUT_TYPE.SEQID && form.controls.inputTYPE.value !== INPUT_TYPE.SUBMITDATA" 
+                                	[class.btn-primary]="form.controls.inputTYPE.value === INPUT_TYPE.SEQ">
+                                	{{ INPUT_TYPE.SEQ }}
+                                </button>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+
+                        <div *ngIf="form.controls.inputTYPE.value === INPUT_TYPE.SEQID">
+                            
+                        	<form [formGroup]="form">
+                        		<!--<div class="panel panel-default margin-20">-->
+                        			<div class="panel-body">
+
+                        				
+
+
+                                        <!-- use material design -->
+
+                                        <!--<mat-form-field>
+                                            <mat-select placeholder="Select Organism" formControlName='organism'>
+                                                <mat-option *ngFor="let species of species_db?.results" [value]="species.id">{{species.species_name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>-->
+                                        
+
+                                        <!-- use material design -->
+                                		<!--<div class="form-group col-xs-12" *ngIf="form.controls.organism.valid"> 
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select variety(ies) *</legend>
+                                           <mat-card *ngIf="varieties_db">
+                                    		<md2-select multiple class="form-group col-xs-8" name="varieties" formControlName="varieties"  [(ngModel)]="currentVariety">
+                                    		
+                                        		<md2-option *ngFor="let variety of getVariety_db(varieties_db)" (onClick)="getSelectedVariety(variety.id, $event)" [value]="variety.id">
+                                            		{{variety.variety_name}}
+                                        		</md2-option> 
+                                    		</md2-select>
+                                            <mat-card-content style="height: 200px; overflow-y: auto" >
+                                                
+                                            </mat-card-content>
+
+
+                                            
+                                            
+                                             
+                                            
+                                            <button md-raised-button color="primary" (click)="form.controls['varieties'].reset()">RESET</button>
+                                            <div class="col-xs-8" *ngIf="form.controls['varieties'].hasError('required') && form.controls['varieties'].touched && currentVariety?.length < 1" class="alert alert-danger">Please select one or more varieties.</div>
+                                    		<p> Value: {{ currentVariety }} </p>
+                                        </mat-card>
+                                        
+                                    		
+                            			</div>-->
+                                        
+                                        
+                                            <!--<div class="form-group col-xs-8" *ngIf="form.controls.organism.valid">
+                                            <mat-selection-list #varieties>
+                                                
+                                                <mat-list-option *ngFor="let variety of getVariety_db(varieties_db)" [selected]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)" [value]="variety.id">{{variety.variety_name}}
+                                                </mat-list-option>
+                                                
+                                            </mat-selection-list>
+                                        </div>-->
+
+                                        
+                                        
+
+                                            
+                                		<!--<div class="form-group col-xs-8" *ngIf="form.controls.organism.valid">     
+                                    		<div [ngStyle]="{'width': '500px', 'overflow-y':'auto'}" *ngIf="varieties_db">
+                                                <legend [ngStyle]="{'text-align':'left', 'font-size': '16px', 'border-bottom': '1px solid grey'}">Select variety(ies) *</legend>
+                                                <div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                                    
+                                                    <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;}" class="green" [checked]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)" [value]="variety.id">{{variety.variety_name}}</label>
+                                                </div> 
+                                                    <div *ngIf="selectedVarieties?.length < 1" class="alert alert-danger">Please Select one or more varieties.</div> 
+                                                <mat-card-content>
+                                                
+                                            </mat-card-content>
+                                                
+
+                                    		</div>
+                            			</div>-->
+
+                            			<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Paste gene identifiers ONLY * <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="usage1modal()" data-target="#myModal">Usage Help</button></legend>
+                                    		<textarea class="form-control" formControlName="geneid" required rows="10" cols="85"></textarea>
+                                    		<div class="col-xs-8" *ngIf="form.get('geneid').errors && form.get('geneid').dirty && form.get('geneid').errors.invalidIDS" class="alert alert-danger">Ensure the input is valid!</div>
+                                    		<div class="col-xs-8" *ngIf="form.controls['geneid'].hasError('required') && form.controls['geneid'].touched" class="alert alert-danger">Please provide gene identifiers.</div>
+                                		</div>
+
+                                        
+
+                                        
+
+                                        <!--<div *ngIf="selectedVars.length === 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of arrayCheck'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt"  [checked]="id == outputfmt" (change)="UpdateOutFmt(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div class="checkbox" *ngFor="let id of outArray">
+                                                    <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center',     'align-items': 'center'}"><input type="checkbox" style="align: start; margin:0 200px;" [disabled]="disabled">{{id}}</label>
+                                                </div>
+                                            <div class="col-xs-8" *ngIf="form.get('outputfmt').errors && form.get('outputfmt').dirty && form.get('outputfmt').errors.invalidFormat" class="alert alert-danger">Required.!</div>
+                                        </div>-->
+                                            
+                                        
+
+                                        <!--<div *ngIf="selectedVars.length > 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of outArray'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt" [checked]="id == outputfmt" (change)="UpdateOutFmt(id, $event)">{{id}}</label>
+                                            </div>
+
+                                            
+                                            
+                                        </div>-->
+                        			</div>
+                                    
+                        		<!--</div> -->
+                        		
+                                <!--<div class="margin-20">
+                                    <div>form details:-</div>
+                                    <pre>Is form valid?: <br>{{form.valid | json}}</pre>
+                                    <pre>form value: <br>{{form.value | json}}</pre>
+                                </div>-->
+                        	</form>
+                            <div class="form-group col-xs-8">
+                            <div *ngIf="selectedVars.length < 1" class="alert alert-danger">Select one or more varieties</div>
+                            <form [formGroup]="gidform">
+                                <div *ngIf="selectedVars.length === 1" class="col-xs-20">
+                                    <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                        <div class="checkbox" *ngFor="let item of singleOptions">
+                                            <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                            <input style="align: start; margin:0 200px;" type="checkbox" name="item" formControlName="outputfmt" [checked]="item.checked" (change)="UpdateOutFmt(item, $event)" [disabled]="disabled">{{item.text}}</label>        
+                                        </div>
+                                </div>
+
+                                <div *ngIf="selectedVars.length > 1" class="col-xs-8">
+                                    <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                        <div class="checkbox" *ngFor="let item of outArray">
+                                            <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                            <input style="align: start; margin:0 200px;" type="checkbox" name="item" formControlName="outputfmt" [checked]="item == outputfmt" (change)="UpdateOutFmt(item, $event)">{{item}}</label>        
+                                        </div>
+                                </div>
+
+
+
+                            </form>
+                            
+                        </div>
+                        <div class="well">
+                                <div class="margin-20">
+                                    <button type="button"  class="btn btn-primary"  [disabled]="!form.valid" (click)="submitGeneID()">Submit</button>
+                                    <button type="reset"   class="btn btn-primary"  onclick="window.location.reload();">Reset</button>
+                                </div> 
+                                </div>
+                             
+
+                            <div *ngIf="loading">
+                            	<sk-fading-circle class="loader"></sk-fading-circle>
+                            	<small style="margin-left: 40%">Thank you for submitting data, Please Wait</small>
+                            </div>
+                        </div>
+
+                       <div *ngIf="form.controls.inputTYPE.value === INPUT_TYPE.SEQ">
+                        	<form [formGroup]="seqform">
+                        			<div class="panel-body">
+                        				<!--<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select organism.</legend>
+                                    		<select id="organism" class="form-control" formControlName='organism' (click)="onSelect_db($event.target.value)">
+                                        		<option [selected]="seqform.controls.organism.value == null" value="">-- Select organism --</option>
+                                        		<option *ngFor="let species of species_db?.results" [selected]="species.id == organism" [value]="species['id']">{{ species.species_name }}</option>
+                                    		</select>
+                                    		
+                                    		<div class="col-xs-8" *ngIf="seqform.controls['organism'].hasError('required') && seqform.controls['organism'].touched" class="alert alert-danger">Please select an organism.</div>
+                                		</div>-->
+
+
+                                        <!--<div class="form-group col-xs-8" *ngIf="seqform.controls.organism.valid">
+                                            <mat-card class="panel panel-default margin-20">
+                                                <legend [ngStyle]="{'text-align':'left', 'font-size': '16px', 'border-bottom': '1px solid grey'}">Select variety(ies) *</legend>
+                                                
+                                                <mat-card-content style="height: 100px; overflow-y: auto" >
+                                                    <div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                                    
+                                                    <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;}" class="green" [checked]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)" [value]="variety.id">{{variety.variety_name}}</label>
+                                                </div>
+
+                                                </mat-card-content>
+                                            </mat-card>
+                                            <div *ngIf="selectedVarieties?.length < 1" class="alert alert-danger">Please Select one or more varieties.</div> 
+                                        </div>-->
+
+                                
+
+                            			<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Paste sequences in FASTA format * <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="usage2modal()" data-target="#myModal">Usage Help</button></legend>
+                                    		<textarea class="form-control" formControlName="sequence" required rows="10" cols="85"></textarea>
+                                            <div class="col-xs-8" *ngIf="seqform.get('sequence').errors && seqform.get('sequence').dirty && seqform.get('sequence').errors.invalidType" class="alert alert-danger">Ensure the input is valid FASTA sequences!</div>
+                                            <div class="col-xs-8" *ngIf="seqform.controls['sequence'].hasError('required') && seqform.controls['sequence'].touched" class="alert alert-danger">Please provide FASTA sequences.</div>
+                                    		
+                                		</div>
+
+                                        <div *ngIf="datas.length === 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of arrayCheck'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt"  [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div class="checkbox" *ngFor="let id of outArray">
+                                                    <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center',     'align-items': 'center'}"><input type="checkbox" style="align: start; margin:0 200px;" [disabled]="disabled">{{id}}</label>
+                                                </div>
+                                            <div class="col-xs-8" *ngIf="seqform.get('outputfmt').errors && seqform.get('outputfmt').dirty && seqform.get('outputfmt').errors.invalidFormat" class="alert alert-danger">Required.!</div>
+                                        </div>
+
+                                        <div *ngIf="datas.length > 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of outArray'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt" [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+
+                                            <div class="col-xs-8" *ngIf="seqform.get('outputfmt').errors && seqform.get('outputfmt').dirty && seqform.get('outputfmt').errors.invalidFormat" class="alert alert-danger">Please select at least one option (consensus sequence wil be as an output option).</div>
+                                            
+                                        </div>
+
+                                        
+
+                        			</div>
+
+                        		
+                        		<div class="well">
+                        		<div class="margin-20">
+      								<button type="button" class="btn btn-primary" [disabled]="!seqform.valid" (click)="submitSeq()">Submit</button>
+      								<button type="reset" class="btn btn-primary"  onclick="window.location.reload();">Reset</button>
+    							</div> 
+    						</div>
+
+
+                        		
+                        		
+                        	</form>
+
+                            <div *ngIf="loading">
+                                <sk-fading-circle class="loader"></sk-fading-circle>
+                                <small style="margin-left: 40%">Thank you for submitting data, Please Wait</small>
+                            </div>
+                        </div> 
+
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+</body>
+
+<footer>
+
+        
+            
+            <div class="pull-center" [ngStyle]="{'margin-left':'auto'}">
+                <div _ngcontent-c14 class="docs-footer-list">
+                    <div _ngcontent-c14 class="footer-logo">
+                <a _ngcontent-c1 aria-label="cassavabase" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://www.cassavabase.org" [ngStyle]="{'background-color': '#F8F8FF', 'height':'80px', 'margin-top':'40px'}">
+                    <span class="mat-button-wrapper">
+                        <img _ngcontent-c1 alt="cassavabase" [ngStyle]="{'height':'80px'}" src="assets/images/nextgen_cassava_icon.png">
+                    </span>
+                <div class="mat-button-ripple mat-ripple" matripple></div>
+                <div class="mat-button-focus-overlay"></div>
+                </a>
+            
+            
+                <a _ngcontent-c1 aria-label="Sol Genomics network" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://vigs.solgenomics.net/" [ngStyle]="{'background-color': '#F8F8FF', 'height':'80px'}">
+                    <span class="mat-button-wrapper">
+                        <img _ngcontent-c1 alt="SOl Genomics network" [ngStyle]="{'height':'80px'}" src="assets/images/sgn_transparent_logo.png">
+                    </span>
+                    <div class="mat-button-ripple mat-ripple" matripple></div>
+                    <div class="mat-button-focus-overlay"></div>
+                </a>
+            
+            
+                <a _ngcontent-c1 aria-label="WMD3-Web MicroRNA Designer" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://wmd3.weigelworld.org/cgi-bin/webapp.cgi" [ngStyle]="{'background-color': '#F8F8FF', 'height':'80px'}">
+                    <span class="mat-button-wrapper">
+                        <img _ngcontent-c1 alt="WMD3-Web MicroRNA Designer" [ngStyle]="{'height':'80px'}" src="assets/images/wwlogo_grey.png">
+                    </span>
+                    <div class="mat-button-ripple mat-ripple" matripple></div>
+                    <div class="mat-button-focus-overlay"></div>
+                </a>
+            
+            </div>
+            </div>
+        </div>
+                    
+                    
+            
+        
+    
+    <p id="footer-info">Copyright © 2017 | International Institute of Tropical Agriculture | All rights reserved</p>
+    
+</footer>
+
+
+<section id="footer">
+
+	
+	
+</section> 
+
+
+
+
+    
+    

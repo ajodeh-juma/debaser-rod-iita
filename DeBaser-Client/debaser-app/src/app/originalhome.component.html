@@ -1,0 +1,370 @@
+<body>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="well" style="background-color: #FFFFFF;">
+                    <div class="margin-20">
+                        <h3 [ngStyle]="{'text-align':'center', 'font-size': '22px'}"> DeBaser: An online tool for fast NGS data assembly and polymorphism discovery</h3>
+                    </div>
+                    
+
+                        <div class="form-group">
+                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select Input Type.</legend>
+                        </div> 
+                    	
+                    	<div class="row">        
+                            <div class="col-xs-6">
+                            	<button class="btn btn-default btn-block" type="button" (click)="setAnalysisInputType(INPUT_TYPE.SEQID)"
+                            	class="btn btn-block text-capitalize"
+                            	[class.btn-default]="form.controls.inputTYPE.value !== INPUT_TYPE.SEQID"
+                            	[class.btn-primary]="form.controls.inputTYPE.value === INPUT_TYPE.SEQID">
+                            	{{ INPUT_TYPE.SEQID }}
+                            	</button>
+                           	</div>
+
+                            <div class="col-xs-6" >
+                                <button class="btn btn-default btn-primary" type="button" (click)="setAnalysisInputType(INPUT_TYPE.SEQ)" 
+                                class="btn btn-block text-capitalize"
+                                [class.btn-default]="form.controls.inputTYPE.value !== INPUT_TYPE.SEQ"
+                                [class.btn-primary]="form.controls.inputTYPE.value === INPUT_TYPE.SEQ">
+                                {{ INPUT_TYPE.SEQ }}
+                                </button>
+                            </div>
+                        </div> 
+                        <br>
+
+                        <div *ngIf="form.controls.inputTYPE.value === INPUT_TYPE.SEQID">
+                        	<form [formGroup]="form">
+                        		<div class="panel panel-default margin-20">
+                        			<div class="panel-body">
+                        				<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select organism.</legend>
+                                    		<select id="organism" class="form-control" formControlName='organism' (click)="onSelect_db($event.target.value)">
+                                        		<option [selected]="form.controls.organism.value == null" value="">-- Select organism --</option> 
+                                        		<option *ngFor="let species of species_db?.results" [selected]="species.id == organism" [value]="species['id']">{{ species.species_name }}</option>
+                                    		</select>
+                                    		
+                                    		<div class="col-xs-8" *ngIf="form.controls['organism'].hasError('required') && form.controls['organism'].touched" class="alert alert-danger">Please select an organism.</div>
+                                		</div>
+                                        
+
+                                		<div class="form-group col-xs-8" *ngIf="form.controls.organism.valid"> 
+                                           
+                                    		<md-card *ngIf="varieties_db">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select variety(ies) *</legend>
+                                        		<div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                            		<label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;" [checked]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)" [value]="variety.id">{{variety.variety_name}}</label>
+                                        		</div> 
+                                        		<div *ngIf="selectedVarieties?.length < 1" class="alert alert-danger">Please Select one or more varieties.</div> 
+                                                
+
+                                    		</md-card>
+                            			</div>
+
+                            			<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Paste gene identifiers ONLY * <button type="button" class="btn btn-info btn-sm" data-toggle="modal" (click)="usage1modal()" data-target="#myModal">Usage Help</button></legend>
+                                    		<textarea class="form-control" formControlName="geneid" required rows="10" cols="85"></textarea>
+                                    		<div class="col-xs-8" *ngIf="form.get('geneid').errors && form.get('geneid').dirty && form.get('geneid').errors.invalidIDS" class="alert alert-danger">Ensure the input is valid!</div>
+                                    		<div class="col-xs-8" *ngIf="form.controls['geneid'].hasError('required') && form.controls['geneid'].touched" class="alert alert-danger">Please provide gene identifiers.</div>
+                                		</div>
+
+                                		<!--<div class="form-group col-xs-8" *ngIf="outputformats_db"> 
+                                    		<h1>Select output formats</h1>
+                                        	<div class="checkbox" *ngFor="let option of outputformats_db?.results">
+                                            	<label><input id="outputfmt" formControlName="outputfmt" type="checkbox" [checked]="option.id == outputfmt" (change)="UpdateOutFmt(option.outputformat, $event)" [value]="option.id">{{ option.outputformat }}</label>
+                                        	</div> 
+                                            <div class="col-xs-8" *ngIf="form.get('outputfmt').errors && form.get('outputfmt').dirty && form.get('outputfmt').errors.invalidFormat" class="alert alert-danger">You must select an appropriate output format.!</div>
+                                            
+                                            
+                                            <div *ngIf="selectedVarieties?.length === 1" class="alert">If one variety selected, then only a Consensus file will be provided.</div>
+                            			</div> -->
+
+                                        <div *ngIf="selectedVarieties?.length === 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of arrayCheck'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt"  [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div class="col-xs-8" *ngIf="form.get('outputfmt').errors && form.get('outputfmt').dirty && form.get('outputfmt').errors.invalidFormat" class="alert alert-danger">Required.!</div>
+                                            <div *ngIf="!form.controls.outputfmt.valid" class="alert alert-danger">Required!</div>
+                                            
+
+                                        </div>
+
+
+                                        <div *ngIf="selectedVarieties?.length > 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of outArray'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt" [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div class="col-xs-8" *ngIf="form.get('outputfmt').errors && form.get('outputfmt').dirty && form.get('outputfmt').errors.invalidFormat" class="alert alert-danger">Required.!</div>
+                                            <div *ngIf="!selectedVarieties?.length > 1" class="alert alert-danger">Select one or more varieties.</div>
+                                        </div>
+
+                                    
+
+                        			</div>
+
+                        		</div>
+                        		<div class="well">
+                        		<div class="margin-20">
+      								<button type="button"  class="btn btn-primary" [disabled]="!form.valid" (click)="submitGeneID()">Submit</button>
+
+      								<button type="reset"   class="btn btn-primary"  onclick="window.location.reload();">Reset</button>
+      							</div> 
+    							</div> 
+                                
+
+
+                        		<!--<div class="margin-20">
+                            		<div>form details:-</div>
+                            		<pre>Is form valid?: <br>{{form.valid | json}}</pre>
+                            		<pre>form value: <br>{{form.value | json}}</pre>
+                        		</div> -->
+                        	</form>
+
+                            <div *ngIf="loading">
+                            	<sk-fading-circle class="loader"></sk-fading-circle>
+                            	<small style="margin-left: 40%">Thank you for submitting data, Please Wait</small>
+                            </div>
+                            <!--<div class="resultsgeneids">
+                                <div *ngIf="loading === false" onclick="checkReadyState()">
+                            </div>-->
+                          
+
+                            <!--<div class="resultsgeneids">
+                                <a *ngIf="uid && uid===cookieValue && selectedVarieties?.length === 1" href="http://127.0.0.1:8000/media/results-geneids/{{uid}}_consensus.fa">Click here to download your results</a>
+                            </div> -->
+
+                            
+
+                            
+
+                            <!-- <div class="resultsgeneids" *ngFor="let res of resultsgeneids_db?.results">
+                                
+                                <a *ngIf="cookieValue===uid" href="{{res.result_file}}">{{uid}}</a>
+                                    
+                            </div> -->
+
+                            
+                                
+                                
+                                
+                                <!--<a href="http://127.0.0.1:8000/results-geneids/" (click)="submitGeneID()"><button class="btn btn-primary">Click to View Results</button>{{uid}}</a> -->
+                                <!--<a href="/{{uid}}"><button onclick="setCookie(name=uid, days=2)" class="btn btn-primary">Click to View Results</button>{{uid}}</a> -->
+                                
+                            
+
+                        	
+                        </div>
+                        
+                        
+                        	
+  							
+
+                       <div *ngIf="form.controls.inputTYPE.value === INPUT_TYPE.SEQ">
+                        	<form [formGroup]="seqform">
+                        		<div class="panel panel-default margin-20">
+                        			<div class="panel-body">
+                        				<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select organism.</legend>
+                                    		<select id="organism" class="form-control" formControlName='organism' (click)="onSelect_db($event.target.value)">
+                                        		<option [selected]="seqform.controls.organism.value == null" value="">-- Select organism --</option>
+                                        		<option *ngFor="let species of species_db?.results" [selected]="species.id == organism" [value]="species['id']">{{ species.species_name }}</option>
+                                    		</select>
+                                    		<!--<div *ngIf="!seqform.controls.organism.valid" class="alert alert-danger">Please select an organism.</div>-->
+                                    		<div class="col-xs-8" *ngIf="seqform.controls['organism'].hasError('required') && seqform.controls['organism'].touched" class="alert alert-danger">Please select an organism.</div>
+                                		</div>
+
+                                		<div class="form-group col-xs-8" *ngIf="seqform.controls.organism.valid"> 
+                                    		<md-card *ngIf="varieties_db">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select varieties you would like to compare *</legend>
+                                        		<div class="checkbox" *ngFor="let variety of getVariety_db(varieties_db)">
+                                            		<label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '14px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}"><input formControlName="varieties" type="checkbox" style="align: start; margin:0 200px;"  [checked]="variety.id == varieties" (change)="getSelectedVariety(variety.id, $event)"[value]="variety.id">{{variety.variety_name}}</label>
+                                        		</div> 
+                                        		<div *ngIf="!seqform.controls.varieties.valid" class="alert alert-danger">Please Select one or more varieties.</div>
+                                    		</md-card>
+                            			</div>
+
+                            			<div class="form-group col-xs-12">
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Paste sequences in FASTA format * <a href="http://localhost:4200/tutorial">Usage help</a></legend>
+                                    		<textarea class="form-control" formControlName="sequence" required rows="10" cols="85"></textarea>
+                                    		
+                                		</div>
+
+                                		<!--<div class="form-group col-xs-8"> 
+                                    		<legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats<button class="btn btn-link" (click)="allseqOff()">All off</button> <button class="btn btn-link" (click)="allseqOn()">All on</button></legend>
+                                    		<div class="col-md-4">
+
+              									<div class="checkbox" *ngFor="let option of output_options">
+              										<label><input type="checkbox" (click)="seqout_options()" [checked]="option.default">{{option.description}}</label>
+              									</div>
+              										
+            								</div>
+                               
+                            			</div> -->
+
+                                		<!--<div class="form-group col-xs-8"> 
+                                    		<h1>Select output formats</h1>
+                                        	<div class="checkbox" *ngFor="let option of outputformats_db?.results">
+                                            	<label><input id="outputfmt" formControlName="outputfmt" type="checkbox" [checked]="option.id == outputfmt" (change)="UpdateOutFmt(option.outputformat, $event)" [value]="option.id">{{ option.outputformat }}</label>
+                                        	</div> 
+                            			</div> -->
+
+                                        <div *ngIf="selectedVarieties?.length === 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of arrayCheck'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt"  [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div *ngIf="!seqform.controls.outputfmt.valid" class="alert alert-danger">Required.</div>
+                                        </div>
+
+
+                                        <div *ngIf="selectedVarieties?.length > 1" class="form-group col-xs-8">
+                                            <legend [ngStyle]="{'text-align':'left', 'font-size': '16px'}">Select output formats</legend>
+                                            <div class="checkbox" *ngFor='let id of outArray'>
+                                                <label [ngStyle]="{'display':'flex', 'color': 'black', 'font-size': '12px', 'font-weight': 'normal', 'width': '150%', 'align-content':'center', 'align-items': 'center'}">
+                                                <input style="align: start; margin:0 200px;" type="checkbox" name="id" formControlName="outputfmt" [checked]="id == outputfmt" (change)="updateCheck(id, $event)">{{id}}</label>
+                                            </div>
+                                            <div *ngIf="!seqform.controls.outputfmt.valid" class="alert alert-danger">Required.</div>
+                                        </div>
+
+                        			</div>
+
+                        		</div>
+                        		<div class="well">
+                        		<div class="margin-20">
+      								<button type="button" class="btn btn-primary" [disabled]="!seqform.valid" (click)="submitSeq()">Submit</button>
+      								<button type="reset" class="btn btn-primary"  onclick="window.location.reload();">Reset</button>
+    							</div> 
+    						</div>
+
+
+                        		<!--<div class="margin-20">
+                            		<div>form details:-</div>
+                            		<pre>Is form valid?: <br>{{seqform.valid | json}}</pre>
+                            		<pre>form value: <br>{{seqform.value | json}}</pre>
+                        		</div> -->
+                        		
+                        	</form>
+
+                            <div *ngIf="loading">
+                                <sk-fading-circle class="loader"></sk-fading-circle>
+                                <small style="margin-left: 40%">Thank you for submitting data, Please Wait</small>
+                            </div>
+
+                            <!--<div class="resultsgeneids">
+                                <a *ngIf="uid && uid===cookieValue && selectedVarieties?.length === 1" href="http://127.0.0.1:8000/media/results-geneids/{{uid}}_consensus.fa">Click here to download your results</a>
+                            </div> -->
+
+                            <!--<div class="resultsgeneids">
+                                <a *ngIf="uid && uid===cookieValue && selectedVarieties?.length != 1" href="http://127.0.0.1:8000/media/multi-results-ids/{{uid}}_links.html">Click here to download your results</a>
+                            </div>-->
+                        </div>
+      			</div>
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
+</body>
+
+
+<!--<footer id="footer" class="row-fluid fullwidth">
+	<div class="container">
+		<div class="row">
+			<div id="footer-col-fourth" class="col-sm-12 col-xs-12">
+				<div id="text-2" class="widget widget_text">
+					<div class="textwidget">
+						<div class="footer-text">
+						    <h3 class="widgettitle">
+							    "Contact Us"
+						    </h3>
+						    <p>
+							    <i class="fa fa-phone">
+								    <a href="tel: +254 720 000 000">+254 720 000 000 &nbsp;</a>
+							    </i>
+						    </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer> -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="container">
+		<div class="row">
+			<div id="footer-col-fourth" class="col-sm-12 col-xs-12">
+				<div id="text-2" class=" widget widget_text">
+					<div class="textwidget">
+						<div class="footer-text">
+							<h3 class="widgettitle">Contact Us</h3>
+							<p>
+								<i class="fa fa-phone">
+									
+								</i>
+								<a href="tel: +254 709 983 846">+254 709 983 846 &nbsp;</a>
+								<i class="fa fa-envelope"></i>
+								<a href="mailto: ideal_info@kemri-wellcome.org">ideal_info@kemri-wellcome.org </a>
+							</p>
+						</div>
+						<div class="icons">
+							<h3 class="widgettitle">Follow Us</h3>
+							<ul class="social-wrapper fullwidth">
+								<li>
+									<a href="https://www.facebook.com/IDeAL.KEMRI.WT/" target="_blank">
+										<i class="fa fa-facebook">
+											
+										</i>
+									</a>
+								</li>
+								<li>
+									<a href="https://twitter.com/IDeAL_KEMRI_WT" target="_blank">
+										<i class="fa fa-twitter">
+											
+										</i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.youtube.com/channel/UC8B9DvWrzAyslhgvixqceAw" target="_blank">
+										<i class="fa fa-youtube">
+											
+										</i>
+									</a>
+								</li>
+								<li>
+									<a href="https://www.instagram.com/ideal_kemri_wt/" target="_blank">
+										<i class="fa fa-instagram" aria-hidden="true">
+											
+										</i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fullwidth copyright"> © Copyright 2017 IITA. All rights reserved.</div>
+</footer>
+<!-- <legend></legend> -->
+<div class="container"> 
+        <div class="pagefooter">
+        	<div class="margin-10">
+        		
+        		<div class="col-xs-2">
+        			<span style="line-height: 60px;"><p style="height: 55px; margin-left: 20px; float: left; color: black; font-size: 14px; font-weight: lighter; display: inline;"><sup> &copy; </sup>2017 IITA.</p></span>
+        		</div>
+        		
+                    
+                    
+        	</div>
+        </div>
+    </div>
