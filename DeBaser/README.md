@@ -58,11 +58,11 @@ localhost:4200
 #Be sure to ADD the correct data then inactivate the DELETE option for security measures.
 
 # Routine CLEANUP will require DELETION of submitted data the other end-points
-    [geneids](http://127.0.0.1:8000/geneids/)
-    [results-geneids]("http://127.0.0.1:8000/results-geneids/)
-    [multi-varieties](http://127.0.0.1:8000/multi-varieties/)
-    [multi-results-ids](http://127.0.0.1:8000/multi-results-ids)
-    [sequences](http://127.0.0.1:8000/sequences/)
+[geneids](http://127.0.0.1:8000/geneids/)
+[results-geneids]("http://127.0.0.1:8000/results-geneids/)
+[multi-varieties](http://127.0.0.1:8000/multi-varieties/)
+[multi-results-ids](http://127.0.0.1:8000/multi-results-ids)
+[sequences](http://127.0.0.1:8000/sequences/)
 
 
 #Once a deletion is done, ensure the corresponding data on the database is also deleted. Typically the API data is mounted onto the ```media``` directory e.g, If the species list is deleted from the API, also delete/remove the species directory in ```~/IITA_PROJECTS/DeBaser/media```.
