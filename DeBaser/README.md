@@ -10,7 +10,7 @@ cd ~/IITA_PROJECTS/DeBaser
 ```
 - start the API 
 ```
-python manage runserver 
+python manage.py runserver 
 ```
 - on a web browser type
 ```
