@@ -20,10 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#with open('/etc/django-secret-key.txt') as f_obj:
-#    SECRET_KEY = f_obj.read().strip()
+with open('/etc/django-secret-key.txt') as f_obj:
+    SECRET_KEY = f_obj.read().strip()
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'y+bq212-n7*+1^0n)(puak9sjwo*wja@=l@6lm)v+fcb+_9=46')
 
 #SECURE_CONTENT_TYPE_NOSNIFF = True
 #SECURE_BROWSER_XSS_FILTER = True
@@ -101,7 +100,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DebaserDB',
         'USER': 'root',
-        'PASSWORD':'Hawi2015',
+        'PASSWORD':'xxxxx',
         'HOST': '127.0.0.1',
         'PORT': ''
     }
