@@ -1,3 +1,9 @@
+# Dependencies
+- [Multalin](http://multalin.toulouse.inra.fr/multalin/) version 5.4.1
+- [Muscle](https://www.drive5.com/muscle/) version 3.8.31, 64 bits
+- [blast](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) version blast-2.6.0+
+
+
 # 1. To start the server 
 
 - if developed in a python3 Virtual environment, activate the virtual environment.
