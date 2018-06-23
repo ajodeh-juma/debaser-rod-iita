@@ -267,6 +267,33 @@ tutorialmodal(){
   .open();
 }
 
+contactmodal() {
+  this.modal.alert()
+  .size('lg')
+  .showClose(true)
+  .title('Contact us')
+  .body(`
+    <div class="panel panel-default margin-15">
+    
+    </div>
+        
+      
+      <ol class="list-group">
+        <p>
+          <b>Guidelines on submission of data and other enquiries</b>
+        </p>
+        <li class="list-group-item">
+          Persons: Rodney Eyles, Trushar shah.
+        </li>
+        <li class="list-group-item">
+          Email: debaser@iita.org.
+        </li>
+      </ol>
+    
+  `)
+  .open();
+}
+
 usage1modal() {
   this.modal.alert()
   .size('lg')
@@ -323,24 +350,6 @@ GCAATGACCCATGCATGATAGCAGTA
   `)
   .open();
 }
-
-contactmodal() {
-  this.modal.alert()
-  .size('sm')
-  .showClose(true)
-  .title('Contact us')
-  .body(`
-    <div class="col-xs-8">
-      <div>
-        
-      </div>
-    </div>
-  `)
-  .open();
-}
-
-
-
 
 submitmodal() {
   this.modal.alert()
