@@ -735,6 +735,7 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                 file_obj.write(('<div class="col-xs-col-18"><p>'+k+': \
                     <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
                     <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
+                    <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>\
                     </a></p></div><br></body></html>'))
 
             elif len(v) > 1:
@@ -749,7 +750,8 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                     file_obj.write(('<div class="col-xs-18"><p>'+k+': \
                         <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
-                        <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
+                        <!-- <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button> -->\
+                        <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>\
                         <a href="'+mshtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MUSCLE Alignment</button>\
                         </a></p></div><br></body></html>'))
                 elif len(msml) == 1 and '_multalin.html' in msml[0]:
@@ -760,7 +762,8 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                     file_obj.write(('<div class="col-xs-18"><p>'+k+': \
                         <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
-                        <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
+                        <!-- <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button> -->\
+                        <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>\
                         <a href="'+mlhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MULTALIN Alignment</button>\
                         </a></p></div><br></body></html>'))
                 else:
@@ -774,8 +777,8 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                         file_obj.write(('<div class="col-xs-18"><p>'+k+': \
                             <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
-                            <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
-                            <!-- <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>-->\
+                            <!-- <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button> -->\
+                            <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>\
                             <a href="'+mshtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MUSCLE Alignment</button>\
                             <a href="'+mlhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MULTALIN Alignment</button>\
                             </a></p></div><br></body></html>'))
