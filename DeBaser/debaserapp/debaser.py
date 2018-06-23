@@ -26,7 +26,7 @@ MEDIA_URL = settings.MEDIA_URL
 
 env=os.environ.copy()
 env['PYTHONPATH']=":".join(sys.path)
-print (env)
+
 #############################
 # INPUT - GENE IDENTIFIERS  #
 #############################
@@ -106,10 +106,10 @@ def varietyCategory(data_dict):
                         singlevardict[varname] = varfile
                         varlist.append(singlevardict)
 
-        print ("submitted data:")
-        print ("organism -->"'\t'+os.path.basename(reffile))
-        print ("varieties -->"'\t'+ ' '.join(varnames))
-        print ("output format(s) -->"'\t'+' '.join(outfmts))
+        print ("submitted data:\n")
+        print ("organism --> %s" % os.path.basename(reffile))
+        print ("varieties --> %s" % ':'.join(varnames))
+        print ("output format(s) --> %s" % ':'.join(outfmts))
         return varlist
 
 def extractSingle(varlist, data_dict):
@@ -209,8 +209,6 @@ def extractSingle(varlist, data_dict):
 
     #url = MEDIA_URL+'results-geneids'
     url = 'http://localhost/results-geneids/'   # link to post files 
-    print (url)
-    
 
     # check gene ids that have sequences and write only the ones having consensus sequences
     for key, value in varfile_dict.items():
@@ -380,7 +378,7 @@ def extractMultiple(varlist, data_dict):
         if seq != None:                  # get identifiers with consensus sequence
             v = geneids_dict.get(key)+' '+key.rsplit('_', 1)[0]
             valid.append(v)
-            sys.stdout.write("Extracting [" +key+ "] \t sequences\n")           
+            sys.stdout.write("Extracting [" +key+ "] sequences\n")           
             with open(varid_file, 'w') as outfile:
                 outfile.write('>' + key)
                 outfile.write('\n')
@@ -412,10 +410,8 @@ def extractMultiple(varlist, data_dict):
     submitted_dic = {}
 
     for line in open(gidsfile):
-        #print (line)
         submitted_dic[line.strip()]=''
         submitted_ids.append(line.strip())
-    #print (len(submitted_ids), len(submitted_dic))
     
     selected = '\t'.join(varnames)
     with open(report_file, 'w') as fhandle:
@@ -774,10 +770,12 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                         file_obj.write('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">\
                             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
                             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                         file_obj.write(('<div class="col-xs-18"><p>'+k+': \
                             <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
                             <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
+                            <!-- <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>-->\
                             <a href="'+mshtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MUSCLE Alignment</button>\
                             <a href="'+mlhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view MULTALIN Alignment</button>\
                             </a></p></div><br></body></html>'))
@@ -1022,9 +1020,7 @@ def clean_():
     
     
     numdays = 86400*2
-    print (numdays)
     now = time.time()
-    print (now)
 
     for root, dirs, files in os.walk(outdir):
         for _dir in dirs:
@@ -1036,8 +1032,8 @@ def clean_():
                 except Exception as e:
                     print (e)
                     pass
-                else:
-                    print("clean up successful")
+                #else:
+                #    print("clean up successful")
 
 
 
