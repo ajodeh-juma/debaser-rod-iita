@@ -24,16 +24,16 @@ with open('/etc/django-secret-key.txt') as f_obj:
     SECRET_KEY = f_obj.read().strip()
 
 
-#SECURE_CONTENT_TYPE_NOSNIFF = True
-#SECURE_BROWSER_XSS_FILTER = True
-#SECURE_SSL_REDIRECT = False
-#SESSION_COOKIE_SECURE = True
-#SECURE_HSTS_SECONDS = 3600
-#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', False) )
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
@@ -63,12 +63,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#SESSION_COOKIE_SECURE = False
+
 #CSRF_COOKIE_SECURE = False
 
-#CSRF_COOKIE_SECURE = True
-#CSRF_COOKIE_HTTPONLY = True
-#X_FRAME_OPTIONS = 'DENY'
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
 
 ROOT_URLCONF = 'DeBaser.urls'
 
@@ -184,7 +184,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'GMT'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
