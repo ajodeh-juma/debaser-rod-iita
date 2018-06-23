@@ -91,7 +91,8 @@
   							<div class="inner pull-left"><p id="rcorners" [ngStyle]="{'color': 'black', 'font-size': '14px', 'font-weight': 'bold', 'margin-left': '0px'}">To retrieve or compare sequences from one or more varieties from the same species</p><span [ngStyle]="{'height':'auto', 'margin-left':'200px', 'font-size': '40px'}">&#8681;</span></div>
   							<div class="inner pull-center"><p [ngStyle]="{'color': 'black', 'font-size': '14px', 'font-weight': 'bold', 'margin-left': '100px'}">OR</p></div>
   							<div class="inner pull-right">
-  							<a _ngcontent-c1 aria-label="Submit raw data" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" href="http://localhost:8000/submit-raw-data">
+                                <!--"href="http://localhost:8000/submit-raw-data"-->
+  							<a _ngcontent-c1 aria-label="Submit raw data" class="docs-button mat-button" mat-button tabindex="0" aria-disabled="false" data-toggle="modal" (click)="contactmodal()" data-target="#myModal">
                     			<span class="mat-button-wrapper">
                         			<button type="button" [ngStyle]="{'color': 'black', 'font-size': '14px', 'font-weight': 'bold', 'margin-top': '0px', 'margin-left': '0px'}" id="rcorners" class="btn btn-default btn-primary">Submit raw data for assembly
                                 </button>
