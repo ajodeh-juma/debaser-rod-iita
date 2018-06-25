@@ -729,12 +729,13 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                 chtml = v[0].split()[1]
                 file_obj.write('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">\
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                 
                 file_obj.write(('<div class="col-xs-col-18"><p>'+k+': \
                     <a href="'+chtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Click to view consensus</button>\
-                    <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button>\
+                    <!-- <a href="'+fhtml+'"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download"></span> Download consensus</button> -->\
                     <a href="'+fhtml+'"><button class="btn"><i class="fa fa-download"></i> Download consensus</button>\
                     </a></p></div><br></body></html>'))
 
@@ -746,6 +747,7 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                     mshtml = msml[0]
                     file_obj.write('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">\
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                     file_obj.write(('<div class="col-xs-18"><p>'+k+': \
@@ -758,6 +760,7 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
                     mlhtml = msml[0]
                     file_obj.write('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">\
                         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">\
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head><body>')
                     file_obj.write(('<div class="col-xs-18"><p>'+k+': \
