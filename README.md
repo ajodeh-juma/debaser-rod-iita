@@ -1,10 +1,12 @@
 # debaser
 # replace all the paths and urls in the scripts appropriately 
 # Dependencies
-- [Multalin](http://multalin.toulouse.inra.fr/multalin/) version 5.4.1
-- [Muscle](https://www.drive5.com/muscle/) version 3.8.31, 64 bits
-- [blast](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download) version blast-2.6.0+
-- [angsd](https://github.com/ANGSD/angsd) program for analysis of NGS data
+- [Multalin] version 5.4.1
+- [Muscle] version 3.8.31, 64 bits
+- [blast] version blast-2.6.0+
+- [angsd] version 0.910
+- [bowtie2] version 2.2.5
+- [htslib] version 1.2.1
 
 # A. Assembly pipeline for consensus sequence generation
 1. To start run the assembly pipeline run the ```debaser.py```. Use ```debaser.py --help``` for more details on I/O
