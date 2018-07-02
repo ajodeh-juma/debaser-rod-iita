@@ -27,6 +27,9 @@ MEDIA_URL = settings.MEDIA_URL
 env=os.environ.copy()
 env['PYTHONPATH']=":".join(sys.path)
 
+# replace the paths appropriately depending on location of tools and dependencies
+# replace the urls appropriately depending on the domian names
+
 #############################
 # INPUT - GENE IDENTIFIERS  #
 #############################
@@ -536,7 +539,9 @@ def run_multalin(geneid_list, data_dict):
     os.chdir(wkdir)
     multalin_out = []
     multres = ''
-    blosumtab = '/home/juma/Tools/MULTALIN/blosum62.tab'
+
+    # important: # replace the paths appropiately.
+    blosumtab = '/home/juma/Tools/MULTALIN/blosum62.tab' 
 
     selected_var = ' '.join(varnames)
     if 'Multalin' in outfmts:
@@ -571,6 +576,8 @@ def run_multalin(geneid_list, data_dict):
                 multmsf = os.path.join(wkdir, base) + '_multalin.msf'
                 multalin_out.append(multdoc)
                 input_file = os.path.basename(filename)
+
+                # important: # replace the paths appropiately.
                 multalin_cmd = '/home/juma/Tools/multalin.5.4.1/multalin -c:%s -o:doc %s' % (blosumtab, input_file)
                 
                 try:
@@ -590,6 +597,9 @@ def doc2html(multalin_out):
 
 
     tmpmult_list = []
+
+    # important: # replace the paths appropiately.
+
     headhtml = '/home/juma/Tools/multalin.5.4.1/head.html'
     tailhtml = '/home/juma/Tools/multalin.5.4.1/tail.html'
 
@@ -1023,11 +1033,8 @@ def postresults(muscle_html, multalin_html, data_dict, geneid_list):
 
 def clean_():
     outdir = os.path.join(MEDIA_ROOT, 'output/')
-    
-    
     numdays = 86400*2
     now = time.time()
-
     for root, dirs, files in os.walk(outdir):
         for _dir in dirs:
             timestamp = os.path.getmtime(os.path.join(root,_dir))
