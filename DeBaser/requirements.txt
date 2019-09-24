@@ -3,7 +3,7 @@ Django==1.10.5
 django-appconf==1.0.2
 django-cors-headers==2.1.0
 Django-Select2==5.8.10
-djangorestframework==3.6.3
+djangorestframework==3.9.1
 ez-setup==0.9
 httpie==0.9.9
 jsonfield==2.0.2
